@@ -75,13 +75,8 @@ npm install -g gulp
 echo -e "\e[1;32mCLONE PAGEKIT LOCALLY\e[0m"
 #Create website directory
 mkdir -p /usr/share/nginx/$sitename/{public_html,logs}
-#Implement download and extract of this version, as it was working in September
-#Most recent version is running into multiple errors, rolling back for support
-wget https://github.com/pagekit/pagekit/releases/download/0.9.1/pagekit-0.9.1.zip -P /usr/share/nginx/$sitename/public_html/
+git clone git://github.com/pagekit/pagekit.git /usr/share/nginx/$sitename/public_html
 cd /usr/share/nginx/$sitename/public_html
-apt-get install -y unzip
-unzip pagekit*.zip
-rm pagekit*.zip
 composer install
 npm install
 bower install --allow-root
